@@ -3,6 +3,32 @@ require('./config.php');
 
 use RobThree\Auth\TwoFactorAuth;
 
+var attempt = 3; // Variable to count number of attempts.
+// Below function Executes on click of login button.
+function validate(){
+    var username = document.getElementById("name").value;
+    var password = document.getElementById("password").value;
+    //var email = document.getElementById("email")
+    if ( username == "elvisamal" && password == "test"){
+        alert ("Login successfully");
+        window.location = "welcom.php"; // Redirecting to other page.
+        return false;
+    }
+
+    else{
+        attempt --;// Decrementing by one.
+        alert("Il vous reste "+attempt+" tentative de connexion;");
+        // Disabling fields after 3 attempts.
+    if( attempt == 0){
+        document.getElementById("name").disabled = true;
+        document.getElementById("password").disabled = true;
+        document.getElementById("email").disabled = true;
+        document.getElementById("submit").disabled = true;
+        return false;
+    }
+    }
+    }
+
 
 if (!empty($_POST['email']) && !empty($_POST['password'])){
     var_dump($_POST);
