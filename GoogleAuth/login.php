@@ -10,8 +10,8 @@ function validate(){
     var password = document.getElementById("password").value;
     //var email = document.getElementById("email")
     if ( username == "elvisamal" && password == "test"){
-        alert ("Login successfully");
-        window.location = "welcom.php"; // Redirecting to other page.
+        alert ("Logged");
+        window.location = "board.php"; // Redirecting to other page.
         return false;
     }
 
